@@ -20,7 +20,7 @@ For example
 
 Add the following options using Java system properties for a proper execution of the agent. 
 
-* **hdiv.console.url**: Url of the Hdiv Console application. By default, [http://localhost:8089/hdiv-console-services](http://localhost:8089/hdiv-console-services)
+* **hdiv.console.url**: Url of the Hdiv Console application. By default, [http://localhost:8089/hdiv-console-web](http://localhost:8089/hdiv-console-web)
 * **hdiv.console.token**: Token of the environment in the Hdiv Console associated with the client application. For example
 **6a367E2eb97db59020a47340**
 * **hdiv.server.name**: Name of the server that runs the client application. For example, **Test-Server**
