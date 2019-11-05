@@ -20,7 +20,7 @@ For example
 
 Add the following options using Java system properties for a proper execution of the agent. 
 
-* **hdiv.console.url**: Url of the Hdiv Console application. By default, [http://localhost:8089/hdiv-console-web](http://localhost:8089/hdiv-console-web)
+* **hdiv.console.url**: Url of the Hdiv Console application. For example, [https://consoleserver/hdiv-console-services](https://consoleserver/hdiv-console-services)
 * **hdiv.console.token**: Token of the environment in the Hdiv Console associated with the client application. For example
 **6a367E2eb97db59020a47340**
 * **hdiv.server.name**: Name of the server that runs the client application. For example, **Test-Server**
@@ -33,7 +33,7 @@ For example
 
 ```
 -javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar
--Dhdiv.console.url=http://localhost:8089/hdiv-console-services 
+-Dhdiv.console.url=https://localhost:8089/hdiv-console-services 
 -Dhdiv.console.token=6a367E2eb97db59020a47340 
 -Dhdiv.server.name=Test-Server 
 -Dhdiv.config.dir=/Users/develop/hdiv/
@@ -50,7 +50,7 @@ mvn clean install
 Then, run the application with a command similar to this, changing the values of the properties for the real values
 
 ```
-java -javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar -Dhdiv.console.url=http://localhost:8089/hdiv-console-services  -Dhdiv.console.token=6a367E2eb97db59020a47340  -Dhdiv.server.name=Test-Server  -Dhdiv.config.dir=/Users/develop/hdiv/ -Dhdiv.base.internal.url=assets  -Dhdiv.multiple.filter=true -jar target/standalone-agent-app-0.0.1-SNAPSHOT.jar 
+java -javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar -Dhdiv.console.url=https://consoleserver/hdiv-console-services  -Dhdiv.console.token=6a367E2eb97db59020a47340  -Dhdiv.server.name=Test-Server  -Dhdiv.config.dir=/Users/develop/hdiv/ -Dhdiv.base.internal.url=assets  -Dhdiv.multiple.filter=true -jar target/standalone-agent-app-0.0.1-SNAPSHOT.jar 
 ```
 
 
@@ -62,13 +62,12 @@ in the page.
 The script tag used must have these form
 
 ```
-<script src="http://${SERVER}:${PORT}/${APP}/${CONTEXT}/uca/static/${FILENAME}.js" type="text/javascript" ></script>
+<script src="https://${SERVER}/${APP}/${CONTEXT}/uca/static/${FILENAME}.js" type="text/javascript" ></script>
 ```
 
 where
 
 * **${SERVER}**: Name of the server that runs this application. For example, **scripts.demo.com**.
-* **${PORT}**: Port of the server where this application runs. For example, **8080**
 * **${APP}**: Name of the client application. For example, **myapp**
 * **${CONTEXT}**: Value of the property **hdiv.base.internal.url**. The suggested value for this property is **assets**
 * **${FILENAME}**: Name of the file. It can take any value, for example, **main.js**
@@ -76,5 +75,5 @@ where
 For example
 
 ```
-<script src="http://scripts.demo.com:8080/myapp/assets/uca/static/main.js" type="text/javascript"></script>
+<script src="a://scripts.demo.com:8080/myapp/assets/uca/static/main.js" type="text/javascript"></script>
 ```
