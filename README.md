@@ -9,7 +9,7 @@ from the command line.
 Add the Hdiv Agent location adding the following line under VM arguments
 
 ```
-* -javaagent:{path-to-hdiv-folder}/hdiv-ee-agent.jar
+-javaagent:{path-to-hdiv-folder}/hdiv-ee-agent.jar
 ```
 
 Add the following options using Java system properties for a proper execution of the agent. 
