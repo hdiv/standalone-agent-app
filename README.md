@@ -75,5 +75,5 @@ where
 For example
 
 ```
-<script src="a://scripts.demo.com:8080/myapp/assets/uca/static/main.js" type="text/javascript"></script>
+<script src="https://scripts.demo.com/myapp/assets/uca/static/main.js" type="text/javascript"></script>
 ```
