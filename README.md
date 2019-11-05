@@ -33,7 +33,7 @@ For example
 
 ```
 -javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar
--Dhdiv.console.url=https://localhost:8089/hdiv-console-services 
+-Dhdiv.console.url=https://consoleserver/hdiv-console-services 
 -Dhdiv.console.token=6a367E2eb97db59020a47340 
 -Dhdiv.server.name=Test-Server 
 -Dhdiv.config.dir=/Users/develop/hdiv/
