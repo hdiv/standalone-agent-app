@@ -12,17 +12,47 @@ Add the Hdiv Agent location adding the following line under VM arguments
 -javaagent:{path-to-hdiv-folder}/hdiv-ee-agent.jar
 ```
 
+For example
+
+```
+-javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar
+```
+
 Add the following options using Java system properties for a proper execution of the agent. 
 
-* **hdiv.console.url**: Url of the Hdiv Console application.
-* **hdiv.console.token**: Token of the environment in the Hdiv Console associated with the client application.
-* **hdiv.server.name**: Name of the server that runs the client application.
-* **hdiv.config.dir**: Path to the directory where the Hdiv license is present.
-* **hdiv.base.internal.url**: Base path to get the script file form the Hdiv Agent.
-* **hdiv.multiple.filter**: Set this property to true to use the Context Path of the script file as the 
+* **hdiv.console.url**: Url of the Hdiv Console application. By default, [http://localhost:8089/hdiv-console-services](http://localhost:8089/hdiv-console-services)
+* **hdiv.console.token**: Token of the environment in the Hdiv Console associated with the client application. For example
+**6a367E2eb97db59020a47340**
+* **hdiv.server.name**: Name of the server that runs the client application. For example, **Test-Server**
+* **hdiv.config.dir**: Path to the directory where the Hdiv license is present. For example, **/Users/develop/hdiv/**
+* **hdiv.base.internal.url**: Base path to get the script file form the Hdiv Agent. The suggested value is **assets**
+* **hdiv.multiple.filter**: Set this property to **true** to use the Context Path of the script file as the 
 name of the client application.
 
+For example
+
+```
+-javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar
+-Dhdiv.console.url=http://localhost:8089/hdiv-console-services 
+-Dhdiv.console.token=6a367E2eb97db59020a47340 
+-Dhdiv.server.name=Test-Server 
+-Dhdiv.config.dir=/Users/develop/hdiv/
+-Dhdiv.base.internal.url=assets
+-Dhdiv.multiple.filter=true
+```
+
 Add other configuration options for the Java Agent if its needed
+
+To run the application from the command line, first compile the application with the command
+
+mvn clean install
+
+Then, run the application with a command similar to this, changing the values of the properties for the real values
+
+```
+java -javaagent:/Users/develop/hdiv/hdiv-ee-agent.jar -Dhdiv.console.url=http://localhost:8089/hdiv-console-services  -Dhdiv.console.token=6a367E2eb97db59020a47340  -Dhdiv.server.name=Test-Server  -Dhdiv.config.dir=/Users/develop/hdiv/ -Dhdiv.base.internal.url=assets  -Dhdiv.multiple.filter=true -jar target/standalone-agent-app-0.0.1-SNAPSHOT.jar 
+```
+
 
 ## Use the Standalone Agent App from the Client Application
 To use the agent through the standalone agent app from a client application, you must include a javascript 
@@ -37,14 +67,14 @@ The script tag used must have these form
 
 where
 
-* **${SERVER}**: Name of the server that runs this application.
-* **${PORT}**: Port of the server where this application runs.
-* **${APP}**: Name of the client application.
-* **${CONTEXT}**: Value of the property hdiv.base.internal.url.
-* **${FILENAME}**: Name of the file. It can take any value
+* **${SERVER}**: Name of the server that runs this application. For example, **scripts.demo.com**.
+* **${PORT}**: Port of the server where this application runs. For example, **8080**
+* **${APP}**: Name of the client application. For example, **myapp**
+* **${CONTEXT}**: Value of the property **hdiv.base.internal.url**. The suggested value for this property is **assets**
+* **${FILENAME}**: Name of the file. It can take any value, for example, **main.js**
 
 For example
 
 ```
-<script src="http://scripts.demo.com:8480/app/analyzers/uca/static/hdiv-name-could-be-changed.js" type="text/javascript"></script>
+<script src="http://scripts.demo.com:8080/myapp/assets/uca/static/main.js" type="text/javascript"></script>
 ```
