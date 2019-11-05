@@ -1,8 +1,8 @@
-#Standalone Agent App
+# Standalone Agent App
 This is an empty Spring Boot application. It can be used to run the Hdiv Agent in remote so it can be used 
 from a web page or application (from now, client application) to detect Untrusted Client Access attacks.
 
-##How to run the app
+## Run the Standalone Agent App
 It's an Spring Boot application, so it can be executed form an IDE (ideally, Spring Tool Suite) or 
 from the command line. 
 
@@ -22,7 +22,7 @@ name of the client application.
 
 Add other configuration options for the Java Agent if its needed
 
-##Use from the Client Application
+## Use the Standalone Agent App from the Client Application
 To use the agent through the standalone agent app from a client application, you must include a javascript 
 file of the agent in every page that must be analyzed. This reference must be the first javascript file included
 in the page.
